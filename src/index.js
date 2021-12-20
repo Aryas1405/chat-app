@@ -1,15 +1,16 @@
 const path = require('path')
-const Filter = require('bad-words')
-const express = require('express')
 const http = require('http')
+const express = require('express')
 const socketio = require('socket.io')
-const {generateMessage ,generateLocationMessage} = require('../src/utils/messages')
-const {addUser,removeUser, getUser,getUsersInRoom} = require('./utils/users')
+const Filter = require('bad-words')
+const { generateMessage, generateLocationMessage } = require('./utils/messages')
+const { addUser, removeUser, getUser, getUsersInRoom } = require('./utils/users')
 
 const app = express()
 const server = http.createServer(app)
 const io = socketio(server)
 
+const port = process.env.PORT || 3000
 const publicDirectoryPath = path.join(__dirname,'../public')
 
 app.use(express.static(publicDirectoryPath))
@@ -36,15 +37,17 @@ io.on('connection',(socket)=>{
             return callback('Profanity is not allowed')
         }
         const user = getUser(socket.id)
-        if(user){     
+        console.log(user);     
+        if(user){
             io.to(user.room).emit('message',generateMessage(user.username,message)) // emit to all connection
             callback('delivered')
         }
     })
-    socket.on('sendLocation',(location)=>{
-        const user = removeUser(socket.id)
+    socket.on('sendLocation',(location,callback)=>{
+        const user = getUser(socket.id)
         if(user){
             io.to(user.room).emit('locationMessage',generateLocationMessage(user.username,`https://www.google.com/maps?q=${location.latitude},${location.longitude}`))
+            callback()
         }
     })
     socket.on('disconnect',()=>{
@@ -56,9 +59,8 @@ io.on('connection',(socket)=>{
                 users : getUsersInRoom(user.room)
             }))
         }
-        
     })
 })
-server.listen(3000,()=>{
-    console.log('server is up at 3000')
+server.listen(port,()=>{
+    console.log(`   server is up at ${port}`)
 })
