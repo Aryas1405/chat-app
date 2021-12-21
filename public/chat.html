@@ -2,26 +2,33 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
     <title>Chat App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0;">
     <link rel="icon" href="./chat-assets/img/favicon.png">
-    <link rel="stylesheet" href="./chat-assets/css/styles.min.css">
+    <link rel="stylesheet" href="./chat-assets/css/styles.css">
+    <link rel="stylesheet" href="./chat-assets/css/base.css">
 </head>
 
 <body>
 
     <div class="chat">
-        <div class="chat__sidebar">
+        <div class="chat__sidebar col-md-3 col-xs-4">
             
         </div>
         <div class="chat__main">
             <div id="messages" class="chat__messages"></div>
-            <div class="compose">
-                <form id="message-form">
-                    <input name="message" type="text" placeholder="message" required autocomplete="off">
-                    <button type="submit">send</button>
-                </form>
-                <button id="send-location">Send Location</button>
-            </div>
+            <form id="message-form">
+                    <div class="compose flex direction-column-xs">
+                    <div class="col-md-9 col-xs-12 mr-10">
+                        <input name="message"  type="text" placeholder="message" required autocomplete="off">
+                    </div>
+                    <div class="col-md-3 col-xs-12 mt-xs-5 flex justify-end">
+                        <button class="mr-10" type="submit">send</button>
+                        <button class="" id="send-location">Send Location</button>
+                    </div>
+                </div>
+            </form>
           
         </div>
     </div>

@@ -59,8 +59,9 @@ io.on('connection',(socket)=>{
                 users : getUsersInRoom(user.room)
             }))
         }
+        
     })
 })
 server.listen(port,()=>{
-    console.log(`   server is up at ${port}`)
+    console.log(`server is up at ${port}`)
 })

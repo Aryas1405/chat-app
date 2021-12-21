@@ -1,3 +1,4 @@
+
 /* General Styles */
 
 * {
@@ -12,6 +13,7 @@ html {
 
 input {
     font-size: 14px;
+    width: 100%;
 }
 
 body {
@@ -39,7 +41,6 @@ input {
 
 button {
     cursor: pointer;
-    padding: 12px;
     background: #7C5CBF;
     border: none;
     color: white;
@@ -93,7 +94,6 @@ button:disabled {
     height: 100vh;
     color: white;
     background: #333744;
-    width: 225px;
     overflow-y: scroll
 }
 
@@ -150,14 +150,15 @@ button:disabled {
 
 .compose input {
     border: 1px solid #eeeeee;
-    width: 100%;
     padding: 12px;
-    margin: 0 16px 0 0;
+    margin: 0 16px 0 0px;
     flex-grow: 1;
 }
 
 .compose button {
     font-size: 14px;
+    padding: 0px 10px 0 10px;
+    border-radius: 3px;
 }
 
 /* Chat Sidebar Styles */
@@ -180,4 +181,145 @@ button:disabled {
     list-style-type: none;
     font-weight: 300;
     padding: 12px 24px 0 24px;
+}
+
+.col-md-1{
+    width:8.33%;
+}
+.col-md-2{
+    width:16.66%;
+}
+.col-md-3{
+    width:25%;
+}
+.col-md-4{
+    width:33.33%;
+}
+.col-md-5{
+    width:41.66%;
+}
+.col-md-6{
+    width:50%;
+}
+.col-md-7{
+    width:58.33%;
+}
+.col-md-8{
+    width:66.66%;
+}
+.col-md-9{
+    width:75%;
+}
+.col-md-10{
+    width:83.33%;
+}
+.col-md-11{
+    width:91.66%;
+}
+.col-md-12{
+    width:100%;
+}
+@media only screen and (max-width: 480px) {
+
+    html {
+        font-size: 15px;
+    }
+    
+    .compose {
+        display: flex;
+        flex-shrink: 0;
+        margin-top: 16px;
+        padding: 10px;
+    }
+    
+    .compose form {
+        display: flex;
+        flex-grow: 1;
+        margin-right: 16px;
+    }
+    
+    .compose input {
+        border: 1px solid #eeeeee;
+        padding: 12px;
+        margin: 0 0px 0 0px;
+        flex-grow: 1;
+    }
+    
+    .compose button {
+        font-size: 12px;
+        padding: 5px 10px 5px 10px;
+        border-radius: 3px;
+    }
+
+    input {
+        font-size: 15px;
+        width:100%;
+    }
+
+    .message {
+        margin-bottom: 16px;   
+    }
+    
+    .message__name {
+        font-weight: 600;
+        font-size: 15px;
+        margin-right: 8px;
+    }
+    
+    .message__meta {
+        color: #777;
+        font-size: 15px;
+    }
+    
+    .message a {
+        color: #0070CC;
+    }
+
+    button {
+        cursor: pointer;
+        padding: 5px;
+        background: #7C5CBF;
+        border: none;
+        color: white;
+        font-size: 14px;
+        transition: background .3s ease;
+        border-radius: 3px;
+    }
+
+    .col-xs-1{
+        width:8.33%;
+    }
+    .col-xs-2{
+        width:16.66%;
+    }
+    .col-xs-3{
+        width:25%;
+    }
+    .col-xs-4{
+        width:33.33%;
+    }
+    .col-xs-5{
+        width:41.66%;
+    }
+    .col-xs-6{
+        width:50%;
+    }
+    .col-xs-7{
+        width:58.33%;
+    }
+    .col-xs-8{
+        width:66.66%;
+    }
+    .col-xs-9{
+        width:75%;
+    }
+    .col-xs-10{
+        width:83.33%;
+    }
+    .col-xs-11{
+        width:91.66%;
+    }
+    .col-xs-12{
+        width:100%;
+    }
 }

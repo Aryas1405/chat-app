@@ -1,0 +1,22 @@
+
+.mr-10 {
+    margin-right: 10px;
+}
+
+.flex{
+    display: flex;
+}
+
+.justify-end{
+   justify-content: flex-end;
+}
+
+@media only screen and (max-width: 480px) {
+
+.direction-column-xs{
+    flex-direction: column;
+}
+.mt-xs-5 {
+    margin-top: 5px;
+}
+}
