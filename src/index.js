@@ -21,7 +21,9 @@ io.on('connection',(socket)=>{
         if(error){
             return callback(error)
         }
+        io.to(socket.id).emit("sound", "load.wav");
         socket.join(user.room)
+        socket.broadcast.emit("sound", "enter.wav");
         socket.emit('message', generateMessage('Admin','wellcome'))
         socket.broadcast.to(user.room).emit('message',generateMessage('Admin',`${user.username} has joined!`))
         io.to(user.room).emit('roomData',({
@@ -39,6 +41,8 @@ io.on('connection',(socket)=>{
         const user = getUser(socket.id)
         console.log(user);     
         if(user){
+            io.to(socket.id).emit("sound", "message-sent.mp3");
+            socket.broadcast.emit("sound", "new-message.wav");
             io.to(user.room).emit('message',generateMessage(user.username,message)) // emit to all connection
             callback('delivered')
         }
@@ -53,6 +57,7 @@ io.on('connection',(socket)=>{
     socket.on('disconnect',()=>{
         const user = removeUser(socket.id)
         if(user){
+            socket.broadcast.emit("sound", "leave.wav");
             io.to(user.room).emit('message',generateMessage('Admin',`${user.username} has left chat !`))
             io.to(user.room).emit('roomData',({
                 room : user.room,

@@ -94,7 +94,7 @@ button:disabled {
     height: 100vh;
     color: white;
     background: #333744;
-    overflow-y: scroll
+    overflow-y: auto
 }
 
 /* Chat styles */
@@ -109,7 +109,7 @@ button:disabled {
 .chat__messages {
     flex-grow: 1;
     padding: 24px 24px 0 24px;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 /* Message Styles */

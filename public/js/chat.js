@@ -45,6 +45,10 @@ socket.on('message',(message)=>{
     $messages.insertAdjacentHTML('beforeend',html)
     autoScroll()
 })
+socket.on('sound',(file)=>{
+    var audio = new Audio(`../chat-assets/audio/${file}`);
+    audio.play();
+})
 socket.on('locationMessage',(location)=>{
     const html = Mustache.render(locationTemplate,{
         username:location.username,
